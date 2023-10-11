@@ -1,8 +1,6 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
-console.log(galleryItems);
-
 const markup = galleryItems
     .map(({ original, preview, description }) => {
         return `<li class="gallery__item">
@@ -21,10 +19,6 @@ const markup = galleryItems
 const gallery = document.querySelector(".gallery");
 gallery.insertAdjacentHTML("beforeend", markup);
 
-const galleryItem = document.querySelector(".gallery__item");
-const galleryLink = document.querySelector(".gallery__link");
-const galleryImage = document.querySelector(".gallery__image");
-
 gallery.addEventListener("click", getBigImage);
 
 function getBigImage(event) {
@@ -34,5 +28,9 @@ function getBigImage(event) {
     }
 
     const urlOfBigImg = event.target.dataset.source;
-    console.log(urlOfBigImg);
+
+    const instance = basicLightbox.create(
+        `<img src="${urlOfBigImg}" width="800" height="600">`
+    );
+    instance.show();
 }
