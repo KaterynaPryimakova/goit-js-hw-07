@@ -20,3 +20,19 @@ const markup = galleryItems
 
 const gallery = document.querySelector(".gallery");
 gallery.insertAdjacentHTML("beforeend", markup);
+
+const galleryItem = document.querySelector(".gallery__item");
+const galleryLink = document.querySelector(".gallery__link");
+const galleryImage = document.querySelector(".gallery__image");
+
+gallery.addEventListener("click", getBigImage);
+
+function getBigImage(event) {
+    event.preventDefault();
+    if (!event.target.classList.contains("gallery__image")) {
+        return;
+    }
+
+    const urlOfBigImg = event.target.dataset.source;
+    console.log(urlOfBigImg);
+}
