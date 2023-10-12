@@ -27,10 +27,9 @@ function openBigImage(event) {
     if (!event.target.classList.contains("gallery__image")) {
         return;
     }
-    const altText = event.target.getAttribute("alt");
-    console.log(altText);
-    const lightbox = new SimpleLightbox(".gallery a", {
-        captionType: altText,
+
+    const lightbox = new SimpleLightbox(".gallery .gallery__link", {
+        captionType: "alt",
         captionDelay: 250,
     });
 }
