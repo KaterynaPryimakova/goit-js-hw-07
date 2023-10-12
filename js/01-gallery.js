@@ -19,9 +19,9 @@ const markup = galleryItems
 const gallery = document.querySelector(".gallery");
 gallery.insertAdjacentHTML("beforeend", markup);
 
-gallery.addEventListener("click", getBigImage);
+gallery.addEventListener("click", openBigImage);
 
-function getBigImage(event) {
+function openBigImage(event) {
     event.preventDefault();
     if (!event.target.classList.contains("gallery__image")) {
         return;
@@ -33,4 +33,12 @@ function getBigImage(event) {
         `<img src="${urlOfBigImg}" width="800" height="600">`
     );
     instance.show();
+
+    window.addEventListener("keydown", closeBigImage);
+    function closeBigImage(event) {
+        console.log(event.code);
+        if (event.code === "Escape") {
+            instance.close();
+        }
+    }
 }
