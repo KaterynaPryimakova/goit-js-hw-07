@@ -1,8 +1,6 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
-console.log(galleryItems);
-
 const markup = galleryItems
     .map(({ original, preview, description }) => {
         return `<li class="gallery__item">
@@ -27,9 +25,8 @@ function openBigImage(event) {
     if (!event.target.classList.contains("gallery__image")) {
         return;
     }
-
-    const lightbox = new SimpleLightbox(".gallery .gallery__link", {
-        captionType: "alt",
+    const lightbox = new SimpleLightbox(".gallery a", {
+        captionsData: "alt",
         captionDelay: 250,
     });
 }
