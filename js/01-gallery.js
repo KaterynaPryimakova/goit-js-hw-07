@@ -36,7 +36,6 @@ function openBigImage(event) {
 
     window.addEventListener("keydown", closeBigImage);
     function closeBigImage(event) {
-        console.log(event.code);
         if (event.code === "Escape") {
             instance.close();
         }
